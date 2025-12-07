@@ -1,2 +1,2 @@
-# tiendanube-saviah-them
+# tiendanube-saviah-theme
 Modificando ecommerce de tiendanube
