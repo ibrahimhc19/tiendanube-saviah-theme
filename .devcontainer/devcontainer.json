@@ -1,0 +1,47 @@
+{
+  "name": "Shopify Liquid Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "postCreateCommand": "npm install -g @shopify/cli @shopify/theme",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "files.autoSave": "onFocusChange",
+        "files.associations": {
+          "*.liquid": "html"
+        },
+        "emmet.includeLanguages": {
+          "liquid": "html"
+        },
+        "workbench.colorTheme": "Default Dark+"
+      },
+      "extensions": [
+        "Shopify.theme-check-vscode",
+        "killalau.vscode-liquid-snippets",
+        "esbenp.prettier-vscode",
+        "ritwickdey.liveserver",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.shopify-cli,target=/home/node/.shopify-cli,type=bind"
+  ],
+  "forwardPorts": [9292],
+  "portsAttributes": {
+    "9292": {
+      "label": "Shopify Theme Dev Server",
+      "onAutoForward": "notify"
+    }
+  }
+}
